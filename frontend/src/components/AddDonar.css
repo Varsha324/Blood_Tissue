@@ -1,0 +1,63 @@
+.add-donor-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1976d2;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .donor-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .donor-form input,
+  .donor-form select {
+    padding: 10px 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.2s ease;
+  }
+  
+  .donor-form input:focus,
+  .donor-form select:focus {
+    border-color: #1976d2;
+    outline: none;
+  }
+  
+  .file-label {
+    margin-top: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  
+  .file-input {
+    margin-bottom: 1.2rem;
+  }
+  
+  .submit-button {
+    padding: 12px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #125aa2;
+  }
+  
