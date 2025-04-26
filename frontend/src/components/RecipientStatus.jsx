@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './RecipientStatus.css';
-import { getSingleDRecipient } from '../Api'; // Adjust the path if needed
+import { getSingleDRecipient } from '../Api';
+import Navbar from '../components/Navbar'; // ✅ Adjust the path as needed
 
 const RecipientStatus = () => {
   const [recipients, setRecipients] = useState([]);
@@ -11,7 +12,7 @@ const RecipientStatus = () => {
       const userId = localStorage.getItem("userId");
       try {
         const res = await getSingleDRecipient(userId);
-        setRecipients(res.data); // ✅ no wrapping — already an array
+        setRecipients(res.data);
       } catch (error) {
         console.error("Error fetching recipient:", error);
       }
@@ -26,6 +27,7 @@ const RecipientStatus = () => {
 
   return (
     <div>
+      <Navbar /> {/* ✅ Navbar included here */}
       <div className="recipient-search">
         <h1>Recipient Status</h1>
         <input

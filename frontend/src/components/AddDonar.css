@@ -1,63 +1,207 @@
+/* Container for the form */
+
 .add-donor-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-heading {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #1976d2;
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-  
-  .donor-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .donor-form input,
-  .donor-form select {
-    padding: 10px 12px;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border 0.2s ease;
-  }
-  
-  .donor-form input:focus,
-  .donor-form select:focus {
-    border-color: #1976d2;
-    outline: none;
-  }
-  
-  .file-label {
-    margin-top: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-  }
-  
-  .file-input {
-    margin-bottom: 1.2rem;
-  }
-  
-  .submit-button {
-    padding: 12px;
-    background-color: #1976d2;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #125aa2;
-  }
-  
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #8bc0e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form heading */
+.form-heading {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #041b33;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Donor form */
+.donor-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #8bc0e6;
+}
+
+/* Input and select styling */
+.donor-form input,
+.donor-form select {
+  padding: 10px 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.donor-form input:focus,
+.donor-form select:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+/* File input styles */
+.file-label {
+  margin-top: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.file-input {
+  margin-bottom: 1.2rem;
+}
+
+/* Submit button */
+.submit-button {
+  padding: 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #125aa2;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-links button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-links button:hover {
+  color: #e3e3e3;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  color: #333;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 10;
+  min-width: 160px;
+}
+
+.dropdown-menu div {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+  background-color: #f5f5f5;
+}
+/* NAVBAR STYLING */
+.navbar {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+ 
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: #fff;
+  color: #333;
+  min-width: 180px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.dropdown-menu div {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-menu div:hover {
+  background-color: #f0f0f0;
+}

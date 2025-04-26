@@ -1,0 +1,47 @@
+.organ-importance-container.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  .organ-importance-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .organ-importance-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 50px 20px;
+  }
+  
+  .flex-box {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    background-color: #0834ac;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .flex-box:hover {
+    transform: translateY(-10px);
+  }
+  
+  .flex-box h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .flex-box p {
+    font-size: 18px;
+    font-style: italic;
+  }
+  

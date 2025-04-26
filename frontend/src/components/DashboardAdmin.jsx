@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Typography, Card, CardContent, Grid, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container,
+  Card,
+  CardContent,
+  Grid,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const DashboardAdmin = () => {
@@ -8,44 +17,57 @@ const DashboardAdmin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/donors/available")
+    axios
+      .get("http://localhost:5000/api/donors/available")
       .then((res) => setData(res.data))
       .catch((err) => console.error("Error fetching donors:", err));
   }, []);
 
   return (
-    <div style={{ display: "flex" }}>
-      
-      <Drawer
-        variant="permanent"
-        anchor="left"
-        sx={{
-          width: 250,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": { width: 250, boxSizing: "border-box", backgroundColor: "#1976d2", color: "#fff" }
-        }}
-      >
-        <Typography variant="h5" style={{ padding: "16px", fontWeight: "bold", textAlign: "center" }}>
-          Dashboard
-        </Typography>
-        <List>
-          <ListItem button onClick={() => navigate("/donar-verification")}>
-            <ListItemText primary="Donar Verification" />
-          </ListItem>
-          <ListItem button onClick={() => navigate("/recipient-verification")}>
-            <ListItemText primary="Recipient Verification" />
-          </ListItem>
-          <ListItem button onClick={() => navigate("/")}>
-            <ListItemText primary="Logout" />
-          </ListItem>
-        </List>
-      </Drawer>
+    <div  style={{
+      backgroundColor:"rgb(41, 42, 47)",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      minHeight: "100vh",
+      width: "100%",
+    }}>
+      {/* Top Navbar */}
+      <AppBar position="static" sx={{ backgroundColor: "#1976d2" }}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+          🩸🫀 GiftSync - Admin Panel
+          </Typography>
+          <div>
+            <Button color="inherit" onClick={() => navigate("/donar-verification")}>
+              Donor Verification
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/recipient-verification")}>
+              Recipient Verification
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/")}>
+              Logout
+            </Button>
+          </div>
+        </Toolbar>
+      </AppBar>
 
       {/* Main Content */}
-      <Container style={{ marginLeft: 270, padding: "20px" }}>  
-        <Typography variant="h4" style={{ textAlign: "center", marginBottom: "20px" }}>
-          Hospital Dashboard
-        </Typography>
+      <Container sx={{ marginTop: 4 }}>
+       <Typography
+           variant="h4"
+           sx={{
+             textAlign: "center",
+             marginBottom: "20px",
+             marginTop: "10px",
+             fontFamily: "'Pacifico', cursive", // <-- Custom font
+             fontWeight: "bold",
+             fontStyle: "italic", // Optional: Adds a stylish feel
+             color: "WHITE" // Optional: Slightly deeper tone
+           }}
+         >
+         Your decision today can be someone’s tomorrow.
+         </Typography>
+       
 
         <Grid container spacing={2}>
           {data.length > 0 ? (
@@ -65,10 +87,38 @@ const DashboardAdmin = () => {
               </Grid>
             ))
           ) : (
-            <Typography variant="h6" style={{ margin: "20px auto" }}>
-              Dwonors available
-            </Typography>
+           <Typography variant="h6" sx={{ margin: "20px auto",fontStyle: "italic" ,color: "WHITE"}}>
+                         BLOOD AND TISSUE MANAGEMENT  SYSTEM
+                       </Typography> 
           )}
+          <div className="organ-importance-container">
+          <div className="flex-box">
+            <img src="/Screenshot_2025-04-25_211308-removebg-preview.png" alt="Organ donation" className="icon-image" />
+            <h2>WHAT IS ORGAN AND TISSUE DONATION?</h2>
+            <p>
+              Organ donation means that a person during his life time pledges that after
+              his/her death, organs from his/her body can…
+            </p>
+          </div>
+
+          <div className="flex-box">
+            <img src="/Screenshot 2025-04-25 212459-Photoroom.png" alt="Transplantation" className="icon-image" />
+            <h2>WHAT IS TRANSPLANTATION?</h2>
+            <p>
+              Transplantation of human cells, tissues or organs saves many lives and
+              restores essential functions where no alternatives…
+            </p>
+          </div>
+
+          <div className="flex-box">
+            <img src="/Screenshot_2025-04-25_213155-removebg-preview.png" alt="Who can donate" className="icon-image" />
+            <h2>WHO CAN DONATE?</h2>
+            <p>
+              Any person not less than 18 years of age, who voluntarily authorizes the
+              removal of any of his organ and/or tissue…
+            </p>
+          </div>
+        </div>
         </Grid>
       </Container>
     </div>

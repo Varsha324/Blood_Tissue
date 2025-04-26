@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './DonarVerification.css';
-import { getDonor, updateDonor } from '../Api'; // Update the path as needed
+import { getDonor, updateDonor } from '../Api';
 
 const DonarVerification = () => {
   const [donors, setDonors] = useState([]);
@@ -32,63 +32,74 @@ const DonarVerification = () => {
   };
 
   return (
-    <div className='donarverification-container'>
-      <h1>DONOR VERIFICATION</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Email</th>
-            <th>Contact Number</th>
-            <th>Gender</th>
-            <th>Location</th>
-            <th>Chronic</th>
-            <th>Blood Group</th>
-            <th>Medical Report</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Donation</th>
-            <th>Consent</th>
-            <th>Info Accuracy</th>
-            <th>Approval</th>
-          </tr>
-        </thead>
-        <tbody>
-          {donors.map((donor) => (
-            <tr key={donor._id}>
-              <td>{donor.name}</td>
-              <td>{donor.age}</td>
-              <td>{donor.email}</td>
-              <td>{donor.contactNumber}</td>
-              <td>{donor.gender}</td>
-              <td>{donor.location}</td>
-              <td>{donor.chronic}</td>
-              <td>{donor.bloodGroup}</td>
-              <td>
-                <a href={donor.medicationPdfUrl} target="_blank" rel="noopener noreferrer">
-                  View Report
-                </a>
-              </td>
-              <td>{donor.height}</td>
-              <td>{donor.weight}</td>
-              <td>{donor.typeOfDonation?.join(", ")}</td>
-              <td>{donor.consent}</td>
-              <td>{donor.informationAccuracy}</td>
-              <td>
-                <select
-                  value={donor.status || "Pending"}
-                  onChange={(e) => handleStatusChange(donor._id, e.target.value)}
-                >
-                  <option value="Pending">Pending</option>
-                  <option value="Approved">Approved</option>
-                  <option value="Rejected">Rejected</option>
-                </select>
-              </td>
+    <div>
+      <div className="admin-navbar">
+        <h2>Admin Panel</h2>
+        <ul>
+          <li><a href="/donar-verification" className="active">Donor Verification</a></li>
+          <li><a href="/recipient-verification">Recipient Verification</a></li>
+          <li><a href="/">Logout</a></li>
+        </ul>
+      </div>
+
+      <div className='donarverification-container'>
+        <h1>DONOR VERIFICATION</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Contact Number</th>
+              <th>Gender</th>
+              <th>Location</th>
+              <th>Chronic</th>
+              <th>Blood Group</th>
+              <th>Medical Report</th>
+              <th>Height</th>
+              <th>Weight</th>
+              <th>Donation</th>
+              <th>Consent</th>
+              <th>Info Accuracy</th>
+              <th>Approval</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {donors.map((donor) => (
+              <tr key={donor._id}>
+                <td>{donor.name}</td>
+                <td>{donor.age}</td>
+                <td>{donor.email}</td>
+                <td>{donor.contactNumber}</td>
+                <td>{donor.gender}</td>
+                <td>{donor.location}</td>
+                <td>{donor.chronic}</td>
+                <td>{donor.bloodGroup}</td>
+                <td>
+                  <a href={donor.medicationPdfUrl} target="_blank" rel="noopener noreferrer">
+                    View Report
+                  </a>
+                </td>
+                <td>{donor.height}</td>
+                <td>{donor.weight}</td>
+                <td>{donor.typeOfDonation?.join(", ")}</td>
+                <td>{donor.consent}</td>
+                <td>{donor.informationAccuracy}</td>
+                <td>
+                  <select
+                    value={donor.status || "Pending"}
+                    onChange={(e) => handleStatusChange(donor._id, e.target.value)}
+                  >
+                    <option value="Pending">Pending</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Rejected">Rejected</option>
+                  </select>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

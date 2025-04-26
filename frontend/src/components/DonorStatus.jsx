@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DonorStatus.css";
-import { getSingleDonor } from "../Api"; // Adjust this import path if needed
+import { getSingleDonor } from "../Api";
+import Navbar from "../components/Navbar"; // ✅ Make sure the path is correct
 
 const DonorStatus = () => {
   const [donors, setDonors] = useState([]);
@@ -11,7 +12,7 @@ const DonorStatus = () => {
       const userId = localStorage.getItem("userId");
       try {
         const response = await getSingleDonor(userId);
-        setDonors(response.data); // ✅ no wrapping — already an array
+        setDonors(response.data);
       } catch (error) {
         console.error("Error fetching donor data:", error);
       }
@@ -26,6 +27,8 @@ const DonorStatus = () => {
 
   return (
     <div>
+      <Navbar /> {/* ✅ Add the navbar at the top */}
+
       <div className="donor-search">
         <h1>Donor Status</h1>
         <input
