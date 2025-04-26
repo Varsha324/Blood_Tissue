@@ -66,17 +66,16 @@ const updateDonor = asyncHandler(async (req, res) => {
 });
 
 //delete donor
-const deleteDonor = asyncHandler(async(req,res)=>
-    {
-        const donor = await Donor.findById(req.params.id);
-        if(!donor)
-        {
-            res.status(404);
-            throw new Error("Donor not found");
-        }
-        await Donor.remove();
-        res.status(200).json({message:"donor is removed"});
-    })
+const deleteDonor = asyncHandler(async (req, res) => {
+  const donor = await Donor.findById(req.params.id);
+  if (!donor) {
+    res.status(404);
+    throw new Error("Donor not found");
+  }
+  await donor.deleteOne(); // ✅ make sure it's donor.deleteOne(), not Donor.remove()
+  res.status(200).json({ message: "Donor is removed" });
+});
+
 
  
     
